@@ -11,8 +11,41 @@ package com.edu.training.jc.repeatAlgoritm;
 public class Task08 {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 
+		double startX;
+		double stepX;
+
+		startX = 0.1;
+		stepX = 0.1;
+
+		double testResult = calculateFunction(startX);
+		if (testResult > 0) { // если функция идёт из плюса в минус
+			for (double i = startX; i <= 10; i = i + stepX) {
+				double result = calculateFunction(i);
+				System.out.printf("%.1f \t", i);
+				System.out.printf("%.4f \n", result);
+				if (result < 0) { // если первое значение после перехода через ноль считать не нужно, то здесь
+									// нужжно заново посчитать функцию с увеличенным аргументом и сравнивать с ним
+					break;
+				}
+			}
+		} else if (testResult < 0) { // если функция мдёт из минуса в плюс
+			for (double i = startX; i <= 10; i = i + stepX) {
+				double result = calculateFunction(i);
+				System.out.printf("%.1f \t", i);
+				System.out.printf("%.4f \n", result);
+				if (result > 0) {
+					break;
+				}
+			}
+		} else if (testResult == 0) {
+			System.out.println("Первое значение функции равно 0 и следующее это уже переход через ноль");
+		}
+	}
+
+	static double calculateFunction(double x) {
+		double y = x * x - Math.pow(Math.E, 2 * x) + 4;
+		return y;
 	}
 
 }
