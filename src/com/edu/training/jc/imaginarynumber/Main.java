@@ -29,9 +29,9 @@ public class Main {
 	static void printlnImaginaryNumber (ImaginaryNumber x) {
 		String flag = new String();
 		if(x.imaginaryPart>0) {
-			flag = "+";
+			flag = " + ";
 		}else if(x.imaginaryPart<0) {
-			flag = "-";
+			flag = " ";
 		}
 		System.out.println(x.realPart + flag + x.imaginaryPart + "i");
 	}
